@@ -32,7 +32,7 @@ public class Statistics {
     private int totalCaloriesBurned;
 
     public Statistics(int totalTrainings, double totalDistance, int totalCaloriesBurned, Long user_id) {
-        this.user_id = user_id;
+        this.user_id = user_id; //user_id
         this.totalTrainings = totalTrainings;
         this.totalDistance = totalDistance;
         this.totalCaloriesBurned = totalCaloriesBurned;
