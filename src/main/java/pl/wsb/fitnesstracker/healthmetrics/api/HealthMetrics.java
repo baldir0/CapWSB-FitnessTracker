@@ -1,10 +1,12 @@
 package pl.wsb.fitnesstracker.healthmetrics.api;
 
+import jakarta.annotation.Resource;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import pl.wsb.fitnesstracker.user.api.User;
 
 @Entity
 @Table(name = "health_metrics")
@@ -16,10 +18,11 @@ public class HealthMetrics {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "user_id")
-    private Long user_id;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
 
-    public HealthMetrics(Long user_id) {
-        this.user_id = user_id;
+    public HealthMetrics(User user_id) {
+        this.user = user_id;
     }
 }
