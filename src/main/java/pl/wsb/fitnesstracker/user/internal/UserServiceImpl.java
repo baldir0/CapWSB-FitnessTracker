@@ -1,5 +1,6 @@
 package pl.wsb.fitnesstracker.user.internal;
 
+import jdk.jshell.spi.ExecutionControl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import pl.wsb.fitnesstracker.user.api.User;
@@ -41,7 +42,7 @@ class UserServiceImpl implements UserService, UserProvider {
 
     @Override
     public List<User> getUsersOlderThan(LocalDate time) {
-        return userRepository.findAllOlderThan(time);
+       throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
