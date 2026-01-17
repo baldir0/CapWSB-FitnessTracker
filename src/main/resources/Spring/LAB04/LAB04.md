@@ -39,19 +39,19 @@ serwisu FitnessTracker:
 
 Stworzone API powinno pozwalać na:
 
-- [ ] wylistowanie podstawowych informacji o wszystkich użytkownikach zapisanych w systemie (tylko ID oraz nazwa
+- [x] wylistowanie podstawowych informacji o wszystkich użytkownikach zapisanych w systemie (tylko ID oraz nazwa
   użytkownika - imię i nazwisko)
-- [ ] pobranie szczegółów dotyczących wybranego użytkownika (po ID)
-- [ ] utworzenie nowego użytkownika
-- [ ] usunięcie użytkownika (konkretny, np. konkretny ID danego uzytkownika)
-- [ ] wyszukiwanie użytkowników po e-mailu, bez rozróżniania wielkości liter, wyszukujące po fragmencie nazwy (zwracane
+- [X] pobranie szczegółów dotyczących wybranego użytkownika (po ID)
+- [X] utworzenie nowego użytkownika
+- [X] usunięcie użytkownika (konkretny, np. konkretny ID danego uzytkownika)
+- [X] wyszukiwanie użytkowników po e-mailu, bez rozróżniania wielkości liter, wyszukujące po fragmencie nazwy (zwracane
   tylko ID oraz e-mail użytkowników)
 - [ ] wyszukiwanie użytkowników po wieku starszym niż zdefiniowany
 - [ ] aktualizowanie użytkowników w systemie (dowolnie wybrany atrybut)
 
 ### Wymagania techniczne
 
-- [ ] API sieciowe powinno wykorzystywać protokół HTTP oraz format JSON do transferu danych
+- [X] API sieciowe powinno wykorzystywać protokół HTTP oraz format JSON do transferu danych
 - [ ] w repozytoriach rozwiązanie może wykorzystywać metody dostarczane przez interfejs JpaRepository oraz metody
   domyślne, pobierające dane za pomocą `findAll()` oraz przetwarzające je za pomocą strumieni (`Stream`). Przykład
   znaleźć można w `UserRepository`

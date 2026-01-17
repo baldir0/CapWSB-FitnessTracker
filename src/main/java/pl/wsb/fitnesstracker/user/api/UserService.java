@@ -14,4 +14,15 @@ public interface UserService {
      */
     User createUser(User user);
 
+    /**
+     * Drop the user from database
+     * @param userId - User ID
+     */
+    void dropUser(Long userId);
+
+    /**
+     * Update user
+     * @param user - User DTO
+     */
+    void updateUser(User user, Long target);
 }

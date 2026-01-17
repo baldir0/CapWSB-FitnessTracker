@@ -3,9 +3,11 @@ package pl.wsb.fitnesstracker.user.internal;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import pl.wsb.fitnesstracker.user.api.User;
+import pl.wsb.fitnesstracker.user.api.UserNotFoundException;
 import pl.wsb.fitnesstracker.user.api.UserProvider;
 import pl.wsb.fitnesstracker.user.api.UserService;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,8 +40,33 @@ class UserServiceImpl implements UserService, UserProvider {
     }
 
     @Override
+    public List<User> getUsersOlderThan(LocalDate time) {
+        return userRepository.findAllOlderThan(time);
+    }
+
+    @Override
     public List<User> findAllUsers() {
         return userRepository.findAll();
+    }
+
+    @Override
+    public void dropUser(Long userId) {
+        if (userRepository.findById(userId).isEmpty()) {
+            throw new UserNotFoundException(userId);
+        };
+
+        userRepository.deleteById(userId);
+    }
+
+    @Override
+    public void updateUser(final User user, final Long target) {
+        User targetUser = userRepository.getReferenceById(target);
+        targetUser.setFirstName(user.getFirstName());
+        targetUser.setLastName(user.getLastName());
+        targetUser.setEmail(user.getEmail());
+        targetUser.setBirthdate(user.getBirthdate());
+
+        userRepository.save(targetUser);
     }
 
 }

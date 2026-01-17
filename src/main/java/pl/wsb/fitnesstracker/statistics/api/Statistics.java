@@ -8,6 +8,9 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import pl.wsb.fitnesstracker.user.api.User;
 
+/**
+ * Statistics class - represents user statistics record
+ */
 @Entity
 @Table(name = "Statistics")
 @Getter
@@ -33,6 +36,14 @@ public class Statistics {
     @Column(name = "total_calories_burned")
     private int totalCaloriesBurned;
 
+    /**
+     * Create new statistics instance
+     * @param id - ID of the statistics
+     * @param user - User Instance
+     * @param totalTrainings - Number of total trainings
+     * @param totalDistance - Number of total distance
+     * @param totalCaloriesBurned - Number of burned calories
+     */
     public Statistics(@Nullable Long id, User user, int totalTrainings, double totalDistance, int totalCaloriesBurned) {
         this.id = id;
         this.user = user;
